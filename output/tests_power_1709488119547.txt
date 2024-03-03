@@ -1,0 +1,28 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class PowerTest {
+
+    public int power(int base, int exponent) {
+        int result = 1;
+        for (int i = 0; i < exponent; i++) {
+            result *= base;
+        }
+        return result;
+    }
+
+    @Test
+    public void testPower() {
+        Assert.assertEquals(power(2, 3), 8);
+    }
+
+    @Test
+    public void testPowerWithZeroExponent() {
+        Assert.assertEquals(power(5, 0), 1);
+    }
+
+    @Test
+    public void testPowerWithNegativeExponent() {
+        Assert.assertEquals(power(3, -2), 0); // Test case for negative exponent, result should be 0
+    }
+}

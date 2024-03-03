@@ -1,0 +1,28 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class FactorialTest {
+
+    @Test
+    public void testFactorialPositiveNumber() {
+        int n = 5;
+        FactorialCalculator calc = new FactorialCalculator();
+        int result = calc.factorial(n);
+        Assert.assertEquals(result, 120);
+    }
+
+    @Test
+    public void testFactorialZero() {
+        int n = 0;
+        FactorialCalculator calc = new FactorialCalculator();
+        int result = calc.factorial(n);
+        Assert.assertEquals(result, 1);
+    }
+
+    @Test(expectedExceptions = IllegalArgumentException.class)
+    public void testFactorialNegativeNumber() {
+        int n = -5;
+        FactorialCalculator calc = new FactorialCalculator();
+        calc.factorial(n);
+    }
+}

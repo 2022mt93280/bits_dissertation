@@ -1,0 +1,7 @@
+public double squareRoot(double a) {
+    if (a < 0) {
+        throw new IllegalArgumentException("Cannot calculate square root of a negative number");
+    }
+    double result = Math.sqrt(a);
+    return result;
+}

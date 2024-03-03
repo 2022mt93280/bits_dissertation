@@ -1,0 +1,17 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class AddTest {
+
+    public int add(int a, int b) {
+        int c = a + b;
+        return c;
+    }
+
+    @Test
+    public void testAdd() {
+        AddTest test = new AddTest();
+        int result = test.add(5, 3);
+        Assert.assertEquals(result, 8);
+    }
+}

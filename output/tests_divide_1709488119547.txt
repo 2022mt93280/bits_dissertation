@@ -1,0 +1,31 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class DivideTest {
+    
+    @Test
+    public void testDividePositiveValues() {
+        DivideTest test = new DivideTest();
+        double result = test.divide(10.0, 2.0);
+        Assert.assertEquals(result, 5.0);
+    }
+    
+    @Test
+    public void testDivideByZero() {
+        DivideTest test = new DivideTest();
+        try {
+            test.divide(10.0, 0.0);
+            Assert.fail("Expected ArithmeticException");
+        } catch (ArithmeticException e) {
+            Assert.assertEquals(e.getMessage(), "Cannot divide by zero");
+        }
+    }
+    
+    public double divide(double a, double b) {
+        if (b == 0) {
+            throw new ArithmeticException("Cannot divide by zero");
+        }
+        double c = a / b;
+        return c;
+    }
+}

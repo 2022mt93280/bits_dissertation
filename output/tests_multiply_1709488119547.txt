@@ -1,0 +1,31 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class MultiplyTest {
+    
+    public int multiply(int a, int b) {
+        int c = a * b;
+        return c;
+    }
+    
+    @Test
+    public void testMultiply() {
+        MultiplyTest multiplyTest = new MultiplyTest();
+        int result = multiplyTest.multiply(3, 5);
+        Assert.assertEquals(result, 15);
+    }
+    
+    @Test
+    public void testMultiplyWithZero() {
+        MultiplyTest multiplyTest = new MultiplyTest();
+        int result = multiplyTest.multiply(7, 0);
+        Assert.assertEquals(result, 0);
+    }
+    
+    @Test
+    public void testMultiplyNegativeNumbers() {
+        MultiplyTest multiplyTest = new MultiplyTest();
+        int result = multiplyTest.multiply(-4, 2);
+        Assert.assertEquals(result, -8);
+    }
+}

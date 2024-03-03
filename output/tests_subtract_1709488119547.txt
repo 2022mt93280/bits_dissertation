@@ -1,0 +1,28 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class SubtractionTest {
+
+    public int subtract(int a, int b) {
+        int c = a - b;
+        return c;
+    }
+
+    @Test
+    public void testSubtractPositiveNumbers() {
+        SubtractionTest subtractionTest = new SubtractionTest();
+        Assert.assertEquals(subtractionTest.subtract(5, 3), 2);
+    }
+
+    @Test
+    public void testSubtractNegativeNumbers() {
+        SubtractionTest subtractionTest = new SubtractionTest();
+        Assert.assertEquals(subtractionTest.subtract(-5, -3), -2);
+    }
+
+    @Test
+    public void testSubtractPositiveAndNegativeNumbers() {
+        SubtractionTest subtractionTest = new SubtractionTest();
+        Assert.assertEquals(subtractionTest.subtract(5, -3), 8);
+    }
+}
