@@ -12,7 +12,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Echo stage name
         run: echo "Located code repository"
 
@@ -21,7 +21,7 @@ jobs:
     needs: code_locator
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Echo stage name
         run: echo "Crawling code repository and finding java files"
 
@@ -30,7 +30,7 @@ jobs:
     needs: code_crawler
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Echo stage name
         run: echo "Extracting functions from java files"
 
@@ -39,7 +39,7 @@ jobs:
     needs: function_extractor
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Echo stage name
         run: echo "Generating test cases for extracted functions"
 
@@ -48,7 +48,7 @@ jobs:
     needs: test_generator
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Echo stage name
         run: echo "Assembling generated test cases into meaningful test suite"
 
@@ -57,6 +57,6 @@ jobs:
     needs: test_assembler
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Echo stage name
         run: echo "Executing test suites"
