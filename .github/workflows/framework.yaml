@@ -4,8 +4,8 @@ on:
     inputs:
       github_url:
         description: "Code repository URL"
-        default: ""
-        required: false
+        default: "https://github.com/2022mt93280/bits_dissertation"
+        required: true
 
 jobs:
   code_locator:
