@@ -25,6 +25,15 @@ jobs:
       - name: Echo stage name
         run: echo "Crawling code repository and finding java files"
 
+  instrument_code:
+    runs-on: [ubuntu-latest]
+    needs: code_locator
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Echo stage name
+        run: echo "Instrument code repository with code coverage tools"
+
   function_extractor:
     runs-on: [ubuntu-latest]
     needs: code_crawler
@@ -54,9 +63,18 @@ jobs:
 
   test_executor:
     runs-on: [ubuntu-latest]
-    needs: test_assembler
+    needs: [test_assembler, instrument_code]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Echo stage name
-        run: echo "Executing test suites"
+        run: echo "Executing test suites on instrumented code"
+
+  code_coverage_report:
+    runs-on: [ubuntu-latest]
+    needs: [test_executor]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Echo stage name
+        run: echo "Prepare code coverage report to find how much code is covered by the tests"
